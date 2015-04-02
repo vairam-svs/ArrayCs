@@ -13,7 +13,7 @@ namespace ArrayCs
                 Console.WriteLine("Enter a string to split at length 6");
                 writeLine = Console.ReadLine();
                 Console.WriteLine("Input String {0} split into array at length 6 is as follows", writeLine);
-                Action continueProgram = () =>{
+                Action continueProgram = () => {
                     Console.WriteLine("Do you want to continue");
                     string continueValue = Console.ReadLine().ToString().Trim().ToUpperInvariant();
                     doYouWantToContinue = (continueValue == "Y");
