@@ -1,9 +1,20 @@
-﻿using System;
+﻿using Microsoft.AspNet.Diagnostics.Views;
+using System;
+using System.Linq.Expressions;
 using System.Text;
 
 
 namespace ArrayCs
 {
+    public static class MemberInfoGetting
+    {
+        public static string GetMemberName<T>(Expression<Func<T>> memberExpression)
+        {
+            MemberExpression expressionBody = (MemberExpression)memberExpression.Body;
+            return expressionBody.Member.Name;
+        }
+    }
+
     public static class NumberParser
     {
         /// <summary>
@@ -16,8 +27,11 @@ namespace ArrayCs
         {
             //is it small enough for conversion for thios 
             //TODO:to replace parameter name with actual parameter name using stackframe (need to find the package for ASP.NET 5.0
+            //http://joelabrahamsson.com/getting-property-and-method-names-using-static-reflection-in-c/ close to,
+            //it still shows inputValue but not number the name of the variable
+            //to which this extension method is attached in calling location
             if (inputValue.Trim().Length > 19)
-                throw new ArgumentOutOfRangeException("inputValue", "Number of digits cannot be greater than 19 digits longer");
+                throw new ArgumentOutOfRangeException(MemberInfoGetting.GetMemberName(() => inputValue), "Number of digits cannot be greater than 19 digits longer");
 
             // Create two different encodings.
             Encoding ascii = Encoding.ASCII;
