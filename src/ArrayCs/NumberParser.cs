@@ -83,7 +83,7 @@ namespace ArrayCs
                         intval = 9;
                         break;
                 }
-                outPutValue += intval * (long)Math.Pow(10, asciiBytes.Length - ++index);
+                outPutValue += intval * (long)System.Math.Pow(10, asciiBytes.Length - ++index);
             }
             return outPutValue;
         }

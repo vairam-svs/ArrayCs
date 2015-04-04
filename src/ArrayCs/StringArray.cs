@@ -36,7 +36,7 @@ namespace ArrayCs
             if (splitAtIntervals == false)
                 return new string[] { inputValue.Substring(0, splitInterval), inputValue.Substring(splitInterval) };
 
-            string[] stringList = new string[(int)Math.Ceiling(inputValue.Length / (decimal)splitInterval)];
+            string[] stringList = new string[(int)System.Math.Ceiling(inputValue.Length / (decimal)splitInterval)];
             //start
             int stringListIndex = 0;
             while(!string.IsNullOrEmpty(inputValue))

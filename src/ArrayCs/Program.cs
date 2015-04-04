@@ -10,8 +10,41 @@ namespace ArrayCs
         /// <param name="args"></param>
         public void Main(string[] args)
         {
+            FibonacciSeqSum();
+            FibonacciSeq();
             ParseLong();
             StringSplitAtPosition();
+        }
+
+        private static void FibonacciSeqSum()
+        {
+            ConsoleActions.PerformAction(
+                "FibonacciSeqSum",
+                "Enter nth number to generate Fibonacci sequence sum for", "Input number {0} to generate the Fibonacci sequence sum for",
+                 new Action<string>((string number) =>
+                 {
+                     long inputValue;
+                     if (!(Int64.TryParse(number, out inputValue)))
+                         throw new ArgumentException("Argument entered {0} is not a valid number", number);
+
+                     Console.WriteLine(Math.FibnocciSequenceSum(inputValue));
+                 }));
+        }
+
+        private static void FibonacciSeq()
+        {
+            ConsoleActions.PerformAction(
+                "FibonacciSeq",
+                "Enter nth number to generate Fibonacci sequence for", "Input number {0} to generate the Fibonacci sequence for",
+                 new Action<string>((string number) =>
+                 {
+                     long inputValue;
+                     if (!(Int64.TryParse(number, out inputValue)))
+                         throw new ArgumentException("Argument entered {0} is not a valid number", number);
+
+                     foreach (long seq in Math.FibnocciSequence(inputValue))
+                         Console.WriteLine(seq);
+                 }));
         }
 
         private static void ParseLong()
