@@ -4,18 +4,36 @@ namespace ArrayCs
 {
     public class Program
     {
-        /// <summary>
-        ///Action sample https://msdn.microsoft.com/en-us/library/vstudio/018hxwa8%28v=vs.110%29.aspx
-        /// </summary>
-        /// <param name="args"></param>
-        public void Main(string[] args)
+        private static void FibonaciSeqSumByFormula()
         {
-            FibonacciSeqSum();
-            FibonacciSeq();
-            ParseLong();
-            StringSplitAtPosition();
-        }
 
+            int sumVal = 0;
+            Func<double, double> seqSum = (double nthIndex) =>
+            {
+                //http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibFormula.html
+                //http://pumas.jpl.nasa.gov/
+                //http://pumas.jpl.nasa.gov/examples/index.php?order_by=keyword
+                // return (System.Math.Pow((1 + System.Math.Sqrt(5)) / 2, nthIndex) - System.Math.Pow((1 - System.Math.Sqrt(5)) / 2, nthIndex))/System.Math.Sqrt(5);
+                //return 1 + 2.23606797749979;
+                //return ((System.Math.Pow((1+2.23606797749979)/2, 2) - (-System.Math.Pow((1-2.23606797749979)/2, 2))) / 2.236067977)/2.23606797749979;
+                //TODO: to find why this is not working.
+                return 0;
+            };
+            sumVal = (int)(seqSum(2));
+            Console.WriteLine(sumVal);
+            Console.WriteLine(seqSum(2));
+            /*
+            var i=getInput("document.Frsqrt.n.value","n","Z");
+  var P=Math.pow((Math.sqrt(5)+1)/2,i)/Math.sqrt(5),
+      p=Math.pow((-Math.sqrt(5)+1)/2,i)/Math.sqrt(5);
+ if(!isFinite(p)|| !isFinite(P)){alert("n is too large - sorry!");ERROR()};
+  document.FrsqrtR.res.value += (i<0?" ((-phi)^":"(Phi^")+i+")/sqrt(5) = "+(i<0?p:P)+
+  (i<0&inacc(p) || i>0&inacc(P)
+   ?" may not be accurate enough"
+   :"    \r rounds to Fib("+i+") ="+Math.round(i<0?p:P)
+  )+"\r";
+  */
+        }
         private static void FibonacciSeqSum()
         {
             ConsoleActions.PerformAction(
@@ -77,6 +95,48 @@ namespace ArrayCs
                      }
                      //end action
                  }));
+        }
+
+        /// <summary>
+        ///Action sample https://msdn.microsoft.com/en-us/library/vstudio/018hxwa8%28v=vs.110%29.aspx
+        /// </summary>
+        /// <param name="args"></param>
+        public void Main(string[] args)
+        {
+            Func<bool> continueExecution = () =>
+            {
+                Console.WriteLine("Do you want to quit all programs");
+                string continueValue = Console.ReadLine().ToString().Trim().ToUpperInvariant();
+                if (string.IsNullOrEmpty(continueValue) || continueValue != "2")
+                    continueValue = "Y";
+                return (continueValue == "Y");
+            };
+
+            int indexCount = 4;
+            while (!continueExecution())
+            {
+                switch (indexCount--)
+                {
+                    case 4:
+                        FibonaciSeqSumByFormula();
+                        break;
+                    case 3:
+                        FibonacciSeqSum();
+                        break;
+                    case 2:
+                        FibonacciSeq();
+                        break;
+                    case 1:
+                        ParseLong();
+                        break;
+                    case 0:
+                        StringSplitAtPosition();
+                        break;
+                    default:
+                        break;
+                }
+
+            }
         }
 
 
