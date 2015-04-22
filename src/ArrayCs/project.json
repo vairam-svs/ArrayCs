@@ -1,6 +1,7 @@
 ﻿{
     "version": "1.0.0-*",
     "dependencies": {
+"SampleCode": "1.0.0-*"
     },
     "commands": {
         "ArrayCs": "run"

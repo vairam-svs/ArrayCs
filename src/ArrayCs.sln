@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.22609.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ArrayCs", "ArrayCs\ArrayCs.kproj", "{ECC08BB0-E85D-4487-BE66-9F3AF3C9ABB3}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SampleCode", "SampleCode\SampleCode.kproj", "{4CD33967-3556-4DB5-AB15-B9C51BFF5C7C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ECC08BB0-E85D-4487-BE66-9F3AF3C9ABB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECC08BB0-E85D-4487-BE66-9F3AF3C9ABB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECC08BB0-E85D-4487-BE66-9F3AF3C9ABB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CD33967-3556-4DB5-AB15-B9C51BFF5C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD33967-3556-4DB5-AB15-B9C51BFF5C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD33967-3556-4DB5-AB15-B9C51BFF5C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD33967-3556-4DB5-AB15-B9C51BFF5C7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

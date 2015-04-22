@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleCode;
+using System;
 
 namespace ArrayCs
 {
@@ -76,6 +77,17 @@ namespace ArrayCs
                  }));
         }
 
+        private static void TestAccessor()
+        {
+            ConsoleActions.PerformAction(
+                "TestAccessor",
+                "Enter a string of number to set to a private set property", "Input provided String {0} to set as private set",
+                 new Action<string>((string number) =>
+                 {
+                     Console.WriteLine((new TestAccessor(Int16.Parse(number))).Prop);
+                 }));
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -112,11 +124,14 @@ namespace ArrayCs
                 return (continueValue == "Y");
             };
 
-            int indexCount = 4;
+            int indexCount = 5;
             while (!continueExecution())
             {
                 switch (indexCount--)
                 {
+                    case 5:
+                        TestAccessor();
+                        break;
                     case 4:
                         FibonaciSeqSumByFormula();
                         break;
