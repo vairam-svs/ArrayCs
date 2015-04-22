@@ -88,6 +88,22 @@ namespace ArrayCs
                  }));
         }
 
+        private static void TestStringCompare()
+        {
+            ConsoleActions.PerformAction(
+                "TestStringCompare",
+                "Enter a string of number to set to a private set property", "Input provided String {0} to set as private set",
+                 new Action<string>((string compare) =>
+                 {
+                     // Show string equality operators
+                     string str1 = "foo";
+                     string str2 = "bar";
+                     string str3 = "bar";
+                     Console.WriteLine("{0} == {1} ? {2}", str1, str2, str1 == str2);
+                     Console.WriteLine("{0} == {1} ? {2}", str2, str3, str2 == str3);
+                 }));
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -117,18 +133,21 @@ namespace ArrayCs
         {
             Func<bool> continueExecution = () =>
             {
-                Console.WriteLine("Do you want to quit all programs");
+                Console.WriteLine("Do you want to quit all programs, Enter 2 for NO");
                 string continueValue = Console.ReadLine().ToString().Trim().ToUpperInvariant();
                 if (string.IsNullOrEmpty(continueValue) || continueValue != "2")
                     continueValue = "Y";
                 return (continueValue == "Y");
             };
 
-            int indexCount = 5;
+            int indexCount = 6;
             while (!continueExecution())
             {
                 switch (indexCount--)
                 {
+                    case 6:
+                        TestStringCompare();
+                        break;
                     case 5:
                         TestAccessor();
                         break;
